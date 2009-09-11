@@ -1,0 +1,25 @@
+Autoform
+========
+
+Autoform is a Rails plugin that makes it easy to dynamically auto-generate a form for an ActiveRecord object. It cycles through all columns in the model and generates semantically correct form output with labels. Think of Autoform as a scaffolder that automatically keeps your forms current as you make changes to your model.
+
+Installation
+============
+
+  cd my_rails_app
+  script/plugin install git://github.com/zeke/autoform.git
+
+Usage
+=====
+
+Stick this in your view:
+
+  <% autoform_for(@hamburgers) %>
+
+By default, this will generate a form including all columns in the `Hamburger` model except `id`, `created_at`, and `updated_at`. If you want to make your own choices about which columns to include in the generated form, you can define an `editable_columns` class method:
+
+  def self.editable_columns
+    %w(name deliciousness price)
+  end
+
+Copyright (c) 2009 Zeke Sikelianos, released under the MIT license
