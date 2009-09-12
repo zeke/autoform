@@ -27,7 +27,7 @@ module Autoform
         dom_id = "#{obj.class.to_s.underscore}_#{col.name}"
         name = "#{obj.class.to_s.underscore}[#{col.name}]"
         value = obj[col.name]
-        label = label_tag(dom_id, col.name.humanize)
+        label = label_tag(dom_id, col.human_name)
       
         # Create the input type based on the mysql datatype
         # eg, text, int tinyint(1), varchar(255)
